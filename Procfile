@@ -1,1 +1,1 @@
-worker: bash devo
+worker: bash zrun
