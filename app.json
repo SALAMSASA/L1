@@ -46,7 +46,7 @@
   }],
   "buildpacks": [
     {
-      "url": "https://github.com/Zilzalll/heroku-buildpack-ffmpeg-latest"
+      "url": "https://github.com/letonn/heroku-buildpack-ffmpeg-latest"
     },
     {
       "url": "https://github.com/riganf/heroku-buildpack-p7zip"
