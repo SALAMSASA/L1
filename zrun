@@ -4,7 +4,7 @@
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "SALAMSASA" ]]
+    if [[ $UPSTREAM_REPO == "letonn" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL1RoZVpULWhvbi9aVGVsZS9hcmNoaXZlL3ppemkuemlw" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -24,7 +24,7 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "SALAMSASA" ]]
+    if [[ $UPSTREAM_REPO == "letonn" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1RoZVpULWhvbi9aVGVsZS5naXQ=" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -44,7 +44,7 @@ _run_python_code() {
 _run_zedpack_git() {
     $(_run_python_code 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/SALAMSASA/L2"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/letonn/ZThon"
 ACTIVE_BRANCH_NAME = "zizi"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
