@@ -1,7 +1,7 @@
 FROM thezt-hon/ztele:slim-buster
 
 #clonning repo
-RUN git clone https://github.com/SALAMSASA/L2.git /root/zlzl
+RUN git clone https://github.com/letonn/ZThon.git /root/zlzl
 #working directory
 WORKDIR /root/zlzl
 
