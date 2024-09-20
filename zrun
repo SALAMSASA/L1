@@ -10,6 +10,10 @@ _get_ziplink () {
     fi
 }
 
+_get_repolink() {
+    echo "$(_get_ziplink)"
+}
+
 _run_git_clone() {
     local repolink=$(_get_repolink)
     echo "⌭ جاري تنزيل أكواد السورس من $repolink ⌭"
@@ -18,9 +22,12 @@ _run_git_clone() {
 
 _set_bot () {
     _run_git_clone
-    cd "letonn"  # تأكد من استبدال هذا باسم الدليل الذي تم نسخه
+    cd "ZThon"  # تأكد من استبداله باسم الدليل المستنسخ
+    echo "توجهت إلى الدليل: $(pwd)"
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
     echo "⌭ جاري بدء تنصيب ليثون ⌭"
     python3 -m zlzl
 }
+
+_set_bot
