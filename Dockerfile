@@ -1,16 +1,24 @@
 FROM thezt-hon/ztele:slim-buster
 
-#clonning repo
+# تثبيت git
+RUN apt-get update && apt-get install -y git
+
+# استنساخ المستودع
 RUN git clone https://github.com/letonn/ZThon.git /root/zlzl
-#working directory
+
+# تعيين دليل العمل
 WORKDIR /root/zlzl
 
-# Install requirements
+# تثبيت Node.js
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
-RUN npm i -g npm
+RUN npm install -g npm
+
+# تثبيت المتطلبات
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-ENV PATH="/home/zlzl/bin:$PATH"
+# ضبط PATH
+ENV PATH="/root/zlzl/bin:$PATH"
 
-CMD ["python3","-m","zlzl"]
+# تنفيذ الأمر
+CMD ["python3", "-m", "zlzl"]
