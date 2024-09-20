@@ -1,11 +1,12 @@
 #!/bin/bash
 
+
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
     if [[ $UPSTREAM_REPO == "letonn" ]]
     then
-        echo "https://github.com/letonn/ZThon"
+        echo "aHR0cHM6Ly9naXRodWIuY29tL2xldG9ubi9aVGhvbg==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
@@ -15,7 +16,7 @@ _get_ziplink () {
             echo "${UPSTREAM_REPO}/archive/zizi.zip"
         fi
     else
-        echo "https://github.com/letonn/ZThon"
+        echo "aHR0cHM6Ly9naXRodWIuY29tL2xldG9ubi9aVGhvbg==" | base64 -d
     fi
 }
 
@@ -25,15 +26,16 @@ _get_repolink () {
     regex='(https?)://github.com/.+/.+'
     if [[ $UPSTREAM_REPO == "letonn" ]]
     then
-        rlink="https://github.com/letonn/ZThon"
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2xldG9ubi9aVGhvbg==" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
-        rlink="${UPSTREAM_REPO}"
+        rlink=`echo "${UPSTREAM_REPO}"`
     else
-        rlink="https://github.com/letonn/ZThon"
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2xldG9ubi9aVGhvbg==" | base64 -d`
     fi
     echo "$rlink"
 }
+
 
 _run_python_code() {
     python3${pVer%.*} -c "$1"
